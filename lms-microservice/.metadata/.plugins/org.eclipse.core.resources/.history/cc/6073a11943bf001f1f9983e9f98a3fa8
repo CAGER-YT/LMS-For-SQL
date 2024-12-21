@@ -1,0 +1,19 @@
+package com.sandytech.user.model;
+
+@Entity
+public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @NotNull
+    private String username;
+
+    @NotNull
+    private String email; // Added email field
+
+    @NotNull
+    private String password;
+
+    // Getters and Setters
+}

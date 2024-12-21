@@ -1,0 +1,87 @@
+version: '3'
+
+services:
+  auth-service:
+    build: ./auth-service
+    ports:
+      - "8081:8081"
+    networks:
+      - lms-network
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+
+  user-service:
+    build: ./user-service
+    ports:
+      - "8082:8082"
+    networks:
+      - lms-network
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+
+  sql-query-service:
+    build: ./sql-query-service
+    ports:
+      - "8083:8083"
+    networks:
+      - lms-network
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+
+  leaderboard-service:
+    build: ./leaderboard-service
+    ports:
+      - "8084:8084"
+    networks:
+      - lms-network
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+
+  notification-service:
+    build: ./notification-service
+    ports:
+      - "8085:8085"
+    networks:
+      - lms-network
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+
+  api-gateway:
+    build: ./api-gateway
+    ports:
+      - "8080:8080"
+    networks:
+      - lms-network
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+
+  config-service:
+    build: ./config-service
+    ports:
+      - "8888:8888"
+    networks:
+      - lms-network
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+
+  discovery-service:
+    build: ./discovery-service
+    ports:
+      - "8761:8761"
+    networks:
+      - lms-network
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+
+  react-frontend:
+    build: ./react-frontend
+    ports:
+      - "3000:3000"
+    networks:
+      - lms-network
+    environment:
+      - NODE_ENV=development
+
+networks:
+  lms-network:
+    driver: bridge
