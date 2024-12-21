@@ -1,0 +1,13 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# VSCode
+.vscode/
+
+# Maven / Gradle
+target/
+build/
+
+# Node modules (if using frontend)
+node_modules/
